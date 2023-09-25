@@ -11,8 +11,9 @@ import static capers.Utils.*;
 public class Dog implements Serializable{ // TODO The interface has to be implemented
 
     /** Folder that dogs live in. */
-    static final File DOG_FOLDER = Utils.join(".capers", "dogs"); // TODO (hint: look at the `join`
-                                         //      function in Utils)
+    static final File DOG_FOLDER = Utils.join(".capers", "dogs");
+    //      TODO (hint: look at the `join`
+    //      function in Utils)
 
     /** Age of dog. */
     private int age;

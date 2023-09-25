@@ -2,7 +2,6 @@ package capers;
 
 import java.io.File;
 import java.io.Serializable;
-
 import static capers.Utils.*;
 
 /** A repository for Capers 
@@ -46,7 +45,19 @@ public class CapersRepository {
      * @param text String of the text to be appended to the story
      */
     public static void writeStory(String text) {
+        File storyFile = Utils.join(CAPERS_FOLDER, "story");
+        String newStoryText;
 
+        if (storyFile.exists() == true){
+            newStoryText = Utils.readContentsAsString(storyFile) + "\n" + text;
+        }
+        else{
+            newStoryText = text;
+        }
+
+        Utils.writeContents(storyFile, newStoryText);
+        System.out.println(newStoryText);
+        return;
     }
 
     /**
@@ -71,7 +82,10 @@ public class CapersRepository {
     public static void celebrateBirthday(String name) {
         // TODO
         Dog newDog = Dog.fromFile(name);
-        newDog.haveBirthday();
-        newDog.saveDog();
+
+        if (newDog != null) {
+            newDog.haveBirthday();
+            newDog.saveDog();
+        }
     }
 }

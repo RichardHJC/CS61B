@@ -61,9 +61,11 @@ public class Main {
         case "birthday":
             validateNumArgs("birthday", args, 2);
             // TODO: celebrate this dog's birthday
-            Dog newDog = Dog.fromFile(args[0]);
+            Dog newDog = Dog.fromFile(args[1]);
             newDog.haveBirthday();
+            newDog.saveDog();
             break;
+
         default:
             exitWithError(String.format("Unknown command: %s", args[0]));
         }
